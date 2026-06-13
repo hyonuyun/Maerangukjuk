@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매란국죽 — 자연 그대로의 맛, 영양죽의 명가 · 전주 죽 전문점</title>
+<meta name="description" content="자연 그대로의 맛, 영양죽의 명가 매란국죽. 전주 중화산동 죽 전문점. 전 메뉴 포장 가능 063-284-0829">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26221b;            /* 먹빛 */
+  --ink-soft:#5a5347;
+  --paper:#efe9da;          /* 한지 */
+  --paper-deep:#e6ddc8;
+  --seal:#a93226;           /* 인주(낙관) */
+  --pine:#44523f;           /* 노송 */
+  --gold:#9c7c3c;           /* 유기 놋빛 */
+  --hairline:rgba(38,34,27,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-weight:400;
+  background-image:
+    radial-gradient(ellipse at 18% 12%, rgba(156,124,60,.05), transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(68,82,63,.05), transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(38,34,27,.012) 2px 3px);
+}
+::selection{background:var(--seal);color:var(--paper)}
+a{color:inherit}
+.serif{font-family:'Gowun Batang',serif}
+.display{font-family:'Song Myung',serif}
+
+/* ---------- 상단바 ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,5vw,56px);
+  transition:background .35s,border-color .35s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{background:rgba(239,233,218,.94);backdrop-filter:blur(8px);border-color:var(--hairline)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-seal{
+  width:34px;height:34px;background:var(--seal);color:#f4ece0;
+  font-family:'Song Myung',serif;font-size:14px;line-height:1.1;
+  display:grid;place-items:center;border-radius:3px;text-align:center;
+  box-shadow:0 1px 0 rgba(0,0,0,.15);flex:none;
+}
+.logo-name{font-family:'Song Myung',serif;font-size:1.1rem;letter-spacing:.32em;margin-right:-.32em;white-space:nowrap}
+nav{display:flex;gap:clamp(14px,3vw,38px)}
+nav a{
+  text-decoration:none;font-size:.86rem;letter-spacing:.16em;color:var(--ink-soft);
+  position:relative;padding:6px 0;
+}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--seal);transition:width .3s}
+nav a:hover::after,nav a:focus-visible::after{width:100%}
+nav a:focus-visible{outline:2px solid var(--seal);outline-offset:4px}
+.nav-call{display:none}
+@media(max-width:680px){
+  nav a:not(.nav-call){display:none}
+  .nav-call{display:inline-block;color:var(--seal);font-weight:500;letter-spacing:.05em}
+}
+
+/* ---------- 히어로 ---------- */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:clamp(24px,5vw,80px);
+  padding:120px clamp(20px,6vw,80px) 80px;
+  max-width:1280px;margin:0 auto;
+  position:relative;
+}
+.hero-copy{max-width:560px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.78rem;letter-spacing:.28em;color:var(--pine);margin-bottom:24px;
+}
+.hero-eyebrow::before{content:"";width:38px;height:1px;background:var(--pine)}
+.hero h1{
+  font-family:'Song Myung',serif;
+  font-size:clamp(2.1rem,6.5vw,4.6rem);
+  line-height:1.25;font-weight:400;letter-spacing:.02em;
+  word-break:keep-all;
+}
+.hero h1 .red{color:var(--seal)}
+.hero-sub{
+  margin-top:24px;font-family:'Gowun Batang',serif;
+  font-size:clamp(.98rem,1.6vw,1.15rem);color:var(--ink-soft);
+  max-width:42ch;word-break:keep-all;
+}
+.hero-actions{margin-top:38px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:.92rem;letter-spacing:.12em;
+  padding:15px 28px;border:1px solid var(--ink);transition:all .25s;min-height:48px;
+}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--seal);border-color:var(--seal)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+
+/* 세로 사군자 족자 — 시그니처 */
+.scrolls{
+  display:flex;gap:clamp(10px,1.6vw,22px);
+  align-self:stretch;align-items:center;
+  padding:30px 0;
+}
+.scroll{
+  writing-mode:vertical-rl;
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(180deg,var(--paper-deep),#ede4cf);
+  border:1px solid var(--hairline);
+  padding:clamp(16px,3vh,34px) clamp(8px,1vw,14px);
+  min-height:clamp(220px,46vh,430px);
+  position:relative;
+  opacity:0;transform:translateY(26px);
+  animation:drop .9s cubic-bezier(.2,.7,.2,1) forwards;
+  box-shadow:0 10px 24px -16px rgba(38,34,27,.45);
+}
+.scroll:nth-child(1){animation-delay:.15s}
+.scroll:nth-child(2){animation-delay:.3s}
+.scroll:nth-child(3){animation-delay:.45s}
+.scroll:nth-child(4){animation-delay:.6s}
+@keyframes drop{to{opacity:1;transform:translateY(0)}}
+.scroll::before,.scroll::after{
+  content:"";position:absolute;left:8px;right:8px;height:5px;background:var(--ink);
+}
+.scroll::before{top:-5px}
+.scroll::after{bottom:-5px}
+.scroll .hanja{font-family:'Song Myung',serif;font-size:clamp(1.6rem,3.4vw,2.8rem);letter-spacing:.4em;color:var(--ink)}
+.scroll .ko{font-family:'Gowun Batang',serif;font-size:.78rem;letter-spacing:.45em;color:var(--ink-soft)}
+.scroll.last .hanja{color:var(--seal)}
+.scroll.last{background:linear-gradient(180deg,#efe2d6,#ecd9c9)}
+
+.hero-stamp{
+  position:absolute;bottom:42px;right:clamp(20px,6vw,80px);
+  width:58px;height:58px;border:2.5px solid var(--seal);border-radius:5px;
+  color:var(--seal);font-family:'Song Myung',serif;font-size:18px;line-height:1.15;
+  display:grid;place-items:center;transform:rotate(-4deg);
+  letter-spacing:.05em;text-align:center;opacity:.9;
+}
+@media(max-width:880px){
+  .hero{
+    grid-template-columns:1fr;
+    padding:96px 20px 56px;
+    gap:36px;min-height:auto;
+  }
+  .hero-actions .btn{flex:1 1 100%;text-align:center}
+  /* 모바일: 족자를 가로 4폭 띠로 */
+  .scrolls{
+    align-self:stretch;justify-content:space-between;
+    padding:6px 0 0;gap:10px;
+  }
+  .scroll{min-height:170px;flex:1;padding:16px 6px;justify-content:center}
+  .scroll .hanja{font-size:1.7rem}
+  .scroll .ko{font-size:.68rem;letter-spacing:.35em}
+  .hero-stamp{display:none}
+}
+
+/* ---------- 공통 섹션 ---------- */
+section{padding:clamp(64px,11vh,130px) clamp(20px,6vw,80px)}
+.inner{max-width:1100px;margin:0 auto}
+.sec-head{margin-bottom:clamp(30px,6vh,64px)}
+.sec-eyebrow{
+  font-size:.76rem;letter-spacing:.32em;color:var(--seal);margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-eyebrow::after{content:"";flex:0 0 36px;height:1px;background:var(--seal);opacity:.5}
+.sec-title{
+  font-family:'Song Myung',serif;font-weight:400;
+  font-size:clamp(1.55rem,3.6vw,2.5rem);line-height:1.35;word-break:keep-all;
+}
+
+/* ---------- 이야기 ---------- */
+.story{background:var(--ink);color:#ece5d4}
+.story .sec-eyebrow{color:#c98b6b}
+.story .sec-eyebrow::after{background:#c98b6b}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:start}
+.story-lede{
+  font-family:'Gowun Batang',serif;font-size:clamp(1.06rem,2vw,1.4rem);
+  line-height:1.95;word-break:keep-all;
+}
+.story-lede em{font-style:normal;color:#d8a06a;border-bottom:1px solid rgba(216,160,106,.4)}
+.story-body{color:rgba(236,229,212,.78);font-weight:300;font-size:.96rem;word-break:keep-all}
+.story-body p+p{margin-top:1.2em}
+.story-four{
+  margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(236,229,212,.18);border:1px solid rgba(236,229,212,.18);
+}
+.story-four div{background:var(--ink);padding:16px 6px;text-align:center}
+.story-four .h{font-family:'Song Myung',serif;font-size:1.4rem;display:block;margin-bottom:6px}
+.story-four .m{font-size:.72rem;letter-spacing:.16em;color:rgba(236,229,212,.6)}
+.story-four div:last-child .h{color:#d96a55}
+@media(max-width:780px){.story-grid{grid-template-columns:1fr}}
+
+/* ---------- 차림표 ---------- */
+.menu-note{font-size:.84rem;color:var(--ink-soft);margin-top:10px;word-break:keep-all}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px) clamp(26px,5vw,72px)}
+@media(max-width:780px){.menu-grid{grid-template-columns:1fr;gap:40px}}
+.menu-group h3{
+  font-family:'Song Myung',serif;font-weight:400;font-size:1.14rem;letter-spacing:.18em;
+  padding-bottom:13px;border-bottom:2px solid var(--ink);margin-bottom:6px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+}
+.menu-group h3 span{font-family:'Gowun Batang',serif;font-size:.74rem;letter-spacing:.08em;color:var(--ink-soft);text-align:right}
+.dish{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:14px 4px;border-bottom:1px solid var(--hairline);
+  transition:background .2s,padding .2s;
+}
+.dish:hover{background:rgba(169,50,38,.05);padding-left:10px}
+.dish-name{font-family:'Gowun Batang',serif;font-weight:700;font-size:1rem}
+.dish-desc{display:block;font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:.8rem;color:var(--ink-soft);margin-top:2px;word-break:keep-all}
+.dish-price{font-family:'Song Myung',serif;white-space:nowrap;color:var(--ink);font-size:.98rem}
+.dish-price small{font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:.74rem;color:var(--ink-soft)}
+.tag{
+  display:inline-block;font-size:.6rem;letter-spacing:.08em;color:var(--seal);
+  border:1px solid var(--seal);padding:1px 6px;margin-left:8px;vertical-align:2px;border-radius:2px;
+  font-family:'Noto Sans KR',sans-serif;font-weight:500;white-space:nowrap;
+}
+.tag.gold{color:var(--gold);border-color:var(--gold)}
+
+/* 계절특선 */
+.season-grid{margin-top:clamp(36px,5vh,56px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,28px)}
+@media(max-width:680px){.season-grid{grid-template-columns:1fr}}
+.season{
+  border:1px solid var(--hairline);padding:24px 24px 18px;position:relative;
+  background:rgba(230,221,200,.45);
+}
+.season.now{border-color:var(--seal);background:rgba(169,50,38,.06)}
+.season h4{
+  font-family:'Song Myung',serif;font-weight:400;font-size:1.05rem;letter-spacing:.16em;
+  display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;
+}
+.season h4 small{font-family:'Noto Sans KR',sans-serif;font-size:.74rem;letter-spacing:.04em;color:var(--ink-soft)}
+.season .now-badge{
+  font-size:.62rem;letter-spacing:.1em;background:var(--seal);color:#f4ece0;
+  padding:2px 8px;border-radius:2px;font-family:'Noto Sans KR',sans-serif;font-weight:500;
+}
+.season .dish{padding:12px 2px}
+.season .dish:last-child{border-bottom:none}
+
+.menu-foot{
+  margin-top:44px;padding:20px 22px;border:1px dashed var(--hairline);
+  display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;
+  font-size:.86rem;color:var(--ink-soft);background:rgba(230,221,200,.5);word-break:keep-all;
+}
+.menu-foot strong{color:var(--seal);font-weight:500;white-space:nowrap}
+
+/* ---------- 마음가짐 ---------- */
+.vows{background:var(--paper-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.vow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px)}
+@media(max-width:780px){.vow-grid{grid-template-columns:1fr}}
+.vow{padding:28px 24px;background:var(--paper);border:1px solid var(--hairline);position:relative}
+.vow::before{
+  content:attr(data-h);position:absolute;top:16px;right:18px;
+  font-family:'Song Myung',serif;font-size:1.9rem;color:rgba(169,50,38,.16);
+}
+.vow h3{font-family:'Gowun Batang',serif;font-size:1.05rem;margin-bottom:10px}
+.vow p{font-size:.88rem;font-weight:300;color:var(--ink-soft);word-break:keep-all}
+
+/* ---------- 오시는 길 ---------- */
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,70px);align-items:start}
+@media(max-width:840px){.visit-grid{grid-template-columns:1fr}}
+.info-row{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--hairline)}
+.info-row dt{
+  flex:0 0 80px;font-family:'Song Myung',serif;letter-spacing:.2em;color:var(--seal);
+  font-size:.9rem;padding-top:2px;
+}
+.info-row dd{font-size:.94rem;word-break:keep-all}
+.info-row dd small{display:block;color:var(--ink-soft);font-weight:300;font-size:.82rem;margin-top:4px}
+.info-row dd a{color:var(--seal);text-decoration:none;border-bottom:1px solid rgba(169,50,38,.35)}
+.info-row dd a:hover{border-bottom-color:var(--seal)}
+.hours-table{width:100%;border-collapse:collapse;margin-top:4px}
+.hours-table td{padding:12px 4px;border-bottom:1px solid var(--hairline);font-size:.92rem}
+.hours-table td:last-child{text-align:right;font-family:'Song Myung',serif;white-space:nowrap}
+.hours-table tr.off td{color:var(--seal)}
+.hours-note{font-size:.8rem;color:var(--ink-soft);font-weight:300;margin-top:10px;word-break:keep-all}
+.visit-card{
+  background:var(--ink);color:#ece5d4;padding:clamp(26px,4vw,44px);
+  position:sticky;top:88px;
+}
+@media(max-width:840px){.visit-card{position:static}}
+.visit-card h3{font-family:'Song Myung',serif;font-weight:400;font-size:1.25rem;letter-spacing:.16em;margin-bottom:6px}
+.visit-card .tel{
+  font-family:'Song Myung',serif;font-size:clamp(1.5rem,3vw,2rem);
+  display:block;margin:16px 0 8px;text-decoration:none;color:#ece5d4;
+}
+.visit-card .tel:hover{color:#d8a06a}
+.visit-card p{font-size:.85rem;font-weight:300;color:rgba(236,229,212,.7);word-break:keep-all}
+.visit-card .map-links{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.visit-card .map-links a{
+  font-size:.82rem;letter-spacing:.06em;text-decoration:none;
+  border:1px solid rgba(236,229,212,.4);padding:12px 18px;transition:all .25s;
+  flex:1;text-align:center;min-width:140px;
+}
+.visit-card .map-links a:hover{background:#ece5d4;color:var(--ink)}
+
+/* ---------- 푸터 ---------- */
+footer{
+  background:var(--ink);color:rgba(236,229,212,.55);
+  padding:36px clamp(20px,6vw,80px) 36px;font-size:.78rem;font-weight:300;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  border-top:1px solid rgba(236,229,212,.12);word-break:keep-all;
+}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#ece5d4}
+.foot-brand .logo-seal{width:28px;height:28px;font-size:12px}
+@media(max-width:680px){footer{padding-bottom:96px}}
+
+/* ---------- 모바일 하단 고정 바 ---------- */
+.mobile-bar{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(38,34,27,.97);backdrop-filter:blur(6px);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  gap:10px;border-top:1px solid rgba(236,229,212,.15);
+}
+.mobile-bar a{
+  flex:1;text-align:center;text-decoration:none;font-size:.9rem;letter-spacing:.08em;
+  padding:13px 0;min-height:48px;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.mobile-bar .m-call{background:var(--seal);color:#f4ece0;font-weight:500}
+.mobile-bar .m-menu{border:1px solid rgba(236,229,212,.4);color:#ece5d4}
+@media(max-width:680px){.mobile-bar{display:flex}}
+
+/* 스크롤 등장 */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .scroll{animation:none;opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <a class="logo" href="#" aria-label="매란국죽 홈">
+    <span class="logo-seal" aria-hidden="true">매란<br>국죽</span>
+    <span class="logo-name">매란국죽</span>
+  </a>
+  <nav aria-label="주요 메뉴">
+    <a href="#story">이야기</a>
+    <a href="#menu">차림표</a>
+    <a href="#vows">마음가짐</a>
+    <a href="#visit">오시는 길</a>
+    <a class="nav-call" href="tel:0632840829">063-284-0829</a>
+  </nav>
+</header>
+
+<main>
+<!-- 히어로 -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">자연 그대로의 맛 · 영양죽의 명가</p>
+    <h1>매화처럼 이르게,<br>대나무처럼 곧게<br><span class="red">죽</span> 한 그릇을 끓입니다</h1>
+    <p class="hero-sub">사군자 매란국죽(梅蘭菊竹)의 마지막 글자, 대나무 죽(竹)을 죽(粥)으로 바꿔 읽었습니다. 신선한 재료로만 맛있게 끓인, 전주 중화산동의 죽 전문점입니다.</p>
+    <div class="hero-actions">
+      <a class="btn btn-fill" href="#menu">차림표 보기</a>
+      <a class="btn btn-line" href="tel:0632840829">포장 주문 063-284-0829</a>
+    </div>
+  </div>
+
+  <div class="scrolls" aria-label="사군자 — 매화, 난초, 국화, 죽">
+    <div class="scroll"><span class="hanja">梅</span><span class="ko">매화 매</span></div>
+    <div class="scroll"><span class="hanja">蘭</span><span class="ko">난초 란</span></div>
+    <div class="scroll"><span class="hanja">菊</span><span class="ko">국화 국</span></div>
+    <div class="scroll last"><span class="hanja">粥</span><span class="ko">미음 죽</span></div>
+  </div>
+
+  <div class="hero-stamp" aria-hidden="true">每日<br>直炊</div>
+</section>
+
+<!-- 이야기 -->
+<section class="story" id="story">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="sec-eyebrow">우리 가게 이야기</p>
+      <h2 class="sec-title">사군자에서 한 글자를<br>바꿔 적은 까닭</h2>
+    </div>
+    <div class="story-grid reveal">
+      <p class="story-lede">
+        매화는 가장 이른 새벽에 피고, 난초는 향을 자랑하지 않으며, 국화는 서리를 견디고, 대나무는 속을 비워 곧게 자랍니다. 그 마지막 글자만 <em>죽 죽(粥)</em>으로 바꾸면, 그것이 저희가 죽을 대하는 마음입니다.
+      </p>
+      <div class="story-body">
+        <p>매란국죽은 전주 예수병원 곁에서 죽을 쑤어 온 동네 죽집입니다. 병원에 계신 가족의 한 끼를 챙기러 오시는 분, 속이 헛헛한 날 혼자 들르시는 분, 어르신과 아이의 부드러운 한 끼를 찾는 분 — 저마다의 사정으로 오시는 손님께 매일 아침 새로 끓인 죽을 내어드립니다.</p>
+        <p>마죽·흑임자죽 같은 전통 영양죽부터 참전복죽·홍게살죽 같은 보양죽, 계절 따라 바뀌는 특선까지 — 열일곱 가지 죽을 솥에서 천천히 저어가며 쑵니다. 빠르지 않아도, 화려하지 않아도, 속이 편안해지는 한 그릇이면 충분하다고 믿습니다.</p>
+        <div class="story-four" aria-hidden="true">
+          <div><span class="h">梅</span><span class="m">이르게</span></div>
+          <div><span class="h">蘭</span><span class="m">은은하게</span></div>
+          <div><span class="h">菊</span><span class="m">꿋꿋하게</span></div>
+          <div><span class="h">粥</span><span class="m">따뜻하게</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 차림표 -->
+<section id="menu">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="sec-eyebrow">차림표</p>
+      <h2 class="sec-title">매일 아침 솥에서 새로 쑤는<br>열일곱 가지 죽</h2>
+      <p class="menu-note">모든 메뉴 포장 가능합니다 · 공기밥 1,000원 추가 가능</p>
+    </div>
+
+    <div class="menu-grid reveal">
+      <!-- 보양죽 -->
+      <div class="menu-group">
+        <h3>몸을 보하는 죽 <span>보양 · 회복식</span></h3>
+        <div class="dish">
+          <div><span class="dish-name">참전복죽</span><span class="tag">제일 찾는 죽</span><span class="dish-desc">내장까지 넣어 고소하게 끓인 회복식의 으뜸</span></div>
+          <span class="dish-price">12,000 <small>· 특 20,000</small></span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">홍게살죽</span><span class="dish-desc">달큰한 홍게살을 아낌없이 넣었습니다</span></div>
+          <span class="dish-price">12,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">잣죽</span><span class="dish-desc">잣을 곱게 갈아 쑨, 예부터 귀한 손님상의 죽</span></div>
+          <span class="dish-price">11,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">야채굴죽</span><span class="dish-desc">바다 향 가득한 굴과 제철 채소</span></div>
+          <span class="dish-price">10,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">바지락죽</span><span class="dish-desc">바지락 육수로 끓여 시원하고 개운합니다</span></div>
+          <span class="dish-price">10,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">새우달걀죽</span><span class="dish-desc">통통한 새우에 달걀을 풀어 부드럽게</span></div>
+          <span class="dish-price">10,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">인삼닭죽</span><span class="dish-desc">닭살을 결대로 찢어 인삼과 함께 푹 끓였습니다</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+      </div>
+
+      <!-- 영양죽 -->
+      <div class="menu-group">
+        <h3>속이 편안한 죽 <span>영양 · 일상식</span></h3>
+        <div class="dish">
+          <div><span class="dish-name">소고기야채죽</span><span class="dish-desc">잘게 다진 소고기와 채소가 든든한 한 그릇</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">해물죽</span><span class="dish-desc">여러 해물을 모아 끓인 바다의 맛</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">김치낙지죽</span><span class="dish-desc">얼큰한 김치에 낙지를 더한 매란국죽의 별미</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">마죽</span><span class="dish-desc">생마를 갈아 넣어 속이 예민한 날에 좋습니다</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">흑임자죽</span><span class="dish-desc">검은깨를 곱게 갈아 고소함이 진합니다</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">녹두죽 · 참치죽</span><span class="dish-desc">담백한 녹두, 든든한 참치 — 각 9,000원</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">호박죽 · 새알팥죽</span><span class="dish-desc">은은하게 단 호박, 새알심 동동 팥죽 — 각 9,000원</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">야채죽</span><span class="dish-desc">제철 채소만 담은 가장 담백한 기본 죽</span></div>
+          <span class="dish-price">8,000</span>
+        </div>
+      </div>
+
+      <!-- 스페셜 -->
+      <div class="menu-group">
+        <h3>스페셜 <span>죽이 아닌 날엔</span></h3>
+        <div class="dish">
+          <div><span class="dish-name">팥칼국수</span><span class="dish-desc">진하게 끓인 팥물에 칼국수 — 죽집의 숨은 별미</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">김치찌개</span><span class="dish-desc">푹 끓여 깊은 맛의 뚝배기 김치찌개</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">비빔밥</span><span class="dish-desc">전주 인심 그대로, 나물 가득 비빔밥</span></div>
+          <span class="dish-price">9,000</span>
+        </div>
+        <div class="dish">
+          <div><span class="dish-name">공기밥</span></div>
+          <span class="dish-price">1,000</span>
+        </div>
+      </div>
+
+      <!-- 계절특선 -->
+      <div class="menu-group">
+        <h3>계절특선 <span>철 따라 바뀝니다</span></h3>
+        <div class="season-grid" style="margin-top:14px">
+          <div class="season now">
+            <h4>여름특선 <small>5월 – 9월</small> <span class="now-badge">지금 주문 가능</span></h4>
+            <div class="dish">
+              <div><span class="dish-name">열무비빔국수</span></div>
+              <span class="dish-price">8,000</span>
+            </div>
+            <div class="dish">
+              <div><span class="dish-name">열무냉국수</span></div>
+              <span class="dish-price">8,000</span>
+            </div>
+          </div>
+          <div class="season">
+            <h4>겨울특선 <small>11월 – 3월</small></h4>
+            <div class="dish">
+              <div><span class="dish-name">사골떡국</span></div>
+              <span class="dish-price">8,000</span>
+            </div>
+            <div class="dish">
+              <div><span class="dish-name">떡만둣국</span></div>
+              <span class="dish-price">8,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-foot reveal">
+      <strong>포장 안내</strong>
+      <span>모든 메뉴 포장 가능합니다. 병원에 계신 가족분께 가져가실 수 있도록 따뜻하게 담아 드립니다. 전화 주문 후 방문하시면 기다림 없이 받아 가실 수 있습니다 — 063-284-0829</span>
+    </div>
+  </div>
+</section>
+
+<!-- 마음가짐 -->
+<section class="vows" id="vows">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="sec-eyebrow">마음가짐</p>
+      <h2 class="sec-title">죽을 쑤는 세 가지 약속</h2>
+    </div>
+    <div class="vow-grid reveal">
+      <div class="vow" data-h="壹">
+        <h3>그날 끓여, 그날까지만</h3>
+        <p>죽은 미리 만들어 둘수록 맛이 무너집니다. 매일 아침 쌀을 새로 불려 솥에서 쑤고, 남은 죽은 다음 날로 넘기지 않습니다.</p>
+      </div>
+      <div class="vow" data-h="貳">
+        <h3>간은 드시는 분의 몫</h3>
+        <p>회복 중인 분, 아이, 어르신 — 필요한 간이 모두 다릅니다. 기본 간은 옅게 잡고, 상에서 입맛대로 맞추시도록 합니다.</p>
+      </div>
+      <div class="vow" data-h="參">
+        <h3>재료는 눈에 보이게</h3>
+        <p>전복은 내장까지, 채소는 제철로. 갈아 숨기지 않고 씹히는 결이 살아 있도록 끓입니다. 무엇이 들었는지 그릇이 말해 줍니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section id="visit">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="sec-eyebrow">오시는 길</p>
+      <h2 class="sec-title">예수병원 재활센터 입구,<br>강남약국 건물</h2>
+    </div>
+    <div class="visit-grid reveal">
+      <dl>
+        <div class="info-row">
+          <dt>주소</dt>
+          <dd>전북특별자치도 전주시 완산구 중화산동1가 166-9
+            <small>전주 예수병원 인근 · 도보 이용이 편리합니다</small>
+          </dd>
+        </div>
+        <div class="info-row">
+          <dt>전화</dt>
+          <dd><a href="tel:0632840829">063-284-0829</a><small>포장 주문은 전화로 미리 부탁드립니다</small></dd>
+        </div>
+        <div class="info-row" style="border-bottom:none">
+          <dt>영업시간</dt>
+          <dd style="flex:1">
+            <table class="hours-table">
+              <tr><td>평일 (월 – 금)</td><td>09:00 – 18:00</td></tr>
+              <tr><td>토요일</td><td>09:00 – 14:00</td></tr>
+              <tr class="off"><td>일요일 · 공휴일</td><td>휴무</td></tr>
+            </table>
+            <p class="hours-note">죽이 떨어지면 일찍 문을 닫는 날도 있습니다. 먼 길 오시기 전 전화 한 통 부탁드립니다.</p>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="visit-card">
+        <h3>매란국죽</h3>
+        <p>맛있는 죽 전문점 · 모든 메뉴 포장 가능</p>
+        <a class="tel" href="tel:0632840829">063 · 284 · 0829</a>
+        <div class="map-links">
+          <a href="https://place.map.kakao.com/21347548" target="_blank" rel="noopener">카카오맵</a>
+          <a href="https://map.naver.com/p/entry/place/16835707" target="_blank" rel="noopener">네이버지도</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-brand">
+    <span class="logo-seal" aria-hidden="true">매란<br>국죽</span>
+    <span class="display" style="letter-spacing:.3em">매란국죽</span>
+  </div>
+  <div>전북특별자치도 전주시 완산구 중화산동1가 166-9 · 063-284-0829 · 일요일·공휴일 휴무</div>
+</footer>
+
+<!-- 모바일 하단 고정 바 -->
+<div class="mobile-bar" role="navigation" aria-label="빠른 메뉴">
+  <a class="m-menu" href="#menu">차림표</a>
+  <a class="m-call" href="tel:0632840829">전화 주문</a>
+</div>
+
+<script>
+const bar=document.getElementById('topbar');
+addEventListener('scroll',()=>bar.classList.toggle('scrolled',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
